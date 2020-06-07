@@ -1,29 +1,33 @@
 import axios from 'axios'
 
 const httpClient = axios.create({
-    baseURL: 'http://localhos:8080'
+    baseURL: 'http://localhost:8080'
 })
 
 class ApiService {
 
-    constructo(apiurl) {
+    constructor(apiurl) {
         this.apiurl = apiurl;
     }
 
     post(url, objeto) { 
-        return httpClient.post(url, objeto);
+        const urlRequest = `${this.apiurl}${url}`
+        return httpClient.post(urlRequest, objeto);
     }
 
     put(url, objeto) {
-        return httpClient.put(url, objeto);
+        const urlRequest = `${this.apiurl}${url}`
+        return httpClient.put(urlRequest, objeto);
     }
 
     delete(url) {
-        return httpClient.delete(url);
+        const urlRequest = `${this.apiurl}${url}`
+        return httpClient.delete(urlRequest);
     }
 
     get(url) {
-        return httpClient.get(url);
+        const urlRequest = `${this.apiurl}${url}`
+        return httpClient.get(urlRequest);
     }
 }
 
