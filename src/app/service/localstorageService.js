@@ -5,6 +5,7 @@ export default class LocalStorageService {
     }
 
     static obterItem(chave) {
-        return localStorage.getItem(chave);
+        const item = localStorage.getItem(chave);
+        return JSON.parse(item)
     }
 }
