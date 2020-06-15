@@ -5,7 +5,7 @@ import Navbar from '../components/navbar'
 
 import 'toastr/build/toastr.min.js'
 
-import 'bootswatch/dist/flatly/bootstrap.css'
+import 'bootswatch/dist/darkly/bootstrap.css'
 import '../custom.css'
 import 'toastr/build/toastr.css'
 
