@@ -1,9 +1,9 @@
 import React from 'react'
 
 export default (props) => {
-    const options = props.lista.map(option => {
+    const options = props.lista.map( (option, index) => {
         return (
-            <option value={option.value}>{option.label}</option>
+            <option value={index}>{option.label}</option>
         )
     });
 

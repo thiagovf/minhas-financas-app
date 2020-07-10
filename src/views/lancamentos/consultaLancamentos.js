@@ -1,13 +1,14 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import Card from '../components/card'
-import FormGroup from '../components/form-group'
-import SelectMenu from '../components/selectMenu'
+import Card from '../../components/card'
+import FormGroup from '../../components/form-group'
+import SelectMenu from '../../components/selectMenu'
+import LancamentosTable from './lancamentosTable'
 
 class ConsultaLancamentos extends React.Component {
 
     render() {
-        const lista = [
+        const meses = [
             { label: 'Selecione...', value: ''},
             { label: 'Janeiro', value: 1},
             { label: 'Fevereiro', value: 2},
@@ -22,6 +23,12 @@ class ConsultaLancamentos extends React.Component {
             { label: 'Novembro', value: 11},
             { label: 'Dezembro', value: 12}
         ]
+
+        const tipos = [
+            { label: 'Selecione...', value: ''},
+            { label: 'Despesa', value: 'DESPESA'},
+            { label: 'Receita', value: 'RECEITA'}
+        ]
         return(
             <Card title='Busca Lançamento'>
                 <div className='row'>
@@ -32,9 +39,25 @@ class ConsultaLancamentos extends React.Component {
                                     aria-aria-describedby=''
                                     placeholder='Digite o campo ano' />
                             </FormGroup>
+                            
                             <FormGroup htmlFor='inputMes' label='Mês: '>
-                                <SelectMenu className='form-control' lista={lista}/>
+                                <SelectMenu id='inputMes' className='form-control' lista={meses}/>
                             </FormGroup>
+                            
+                            <FormGroup htmlFor='inputTipo' label='Tipo: '>
+                                <SelectMenu id='inputTipo' className='form-control' lista={tipos}/>
+                            </FormGroup>
+
+                            <button type='button' className='btn btn-success'>Buscar</button> 
+                            <button type='button' className='btn btn-danger'>Cadastrar</button>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div className='row'>
+                    <div className='col-md-12'>
+                        <div className='bs-component'>
+                            <LancamentosTable lancamentos={lancamentos}/>
                         </div>
                     </div>
                 </div>
